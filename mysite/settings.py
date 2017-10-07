@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'gm8o2(2jus6q4#du6aiyj=^+y+n!j$jm7k5z18k9q*b!x%+uii'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['rustyRedFocus.pythonanywhere.com']
 
