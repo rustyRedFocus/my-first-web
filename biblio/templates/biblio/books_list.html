@@ -1,7 +1,6 @@
-<html>
-<head>
-	
-<body>
+{% extends 'biblio/base.html' %}
+
+{% block content %}
 <!--
 COMMENT OUT TAG
 -->
@@ -18,12 +17,7 @@ COMMENT OUT TAG
 	<div>
 	<p><button type="submit"> {{ video }} </button></p>
 	</div>
+
 {% endfor %}
 
-</body>
-
-
-</head>
-
-
-</html>
+{% endblock %}

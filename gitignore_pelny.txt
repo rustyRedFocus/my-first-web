@@ -1,0 +1,7 @@
+plik nazwaæ .gitignore i wywaliæ t¹ linijkê
+
+*.pyc
+__pycache__
+myvenv
+db.sqlite3
+.DS_Store

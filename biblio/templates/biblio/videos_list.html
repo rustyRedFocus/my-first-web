@@ -1,7 +1,6 @@
-<html>
-<head>
-	
-<body>
+{% extends 'biblio/base.html' %}
+
+{% block content %}
 <!--
 COMMENT OUT TAG
 -->
@@ -10,15 +9,13 @@ COMMENT OUT TAG
 <br><br>
 
 {% for video in videos %}
-	<div>
-	<p><button type="submit"> {{ video }} </button></p>
+	<div class="row">
+		<div class="col-md-8"
+	<p><form><input type="button" onclick="sayHello()" value="{{ video }}" /></form></p>
+	<h1><a href="{% url 'video_detail' pk=video.pk %}">{{ video.title }}</a></h1>
+	<p>{{ video.director|linebreaksbr }}</p>
+</div>
 	</div>
 {% endfor %}
 
-</body>
-
-
-</head>
-
-
-</html>
+{% endblock %}
