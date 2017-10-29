@@ -42,12 +42,13 @@ class Video(models.Model):
 	title = models.CharField(max_length=200)
 	director = models.CharField(max_length=200)
 	year = models.CharField(max_length=4)
+	description = models.TextField()
 
 	STATUS_CHOICES = (
-		('b', 'Borrowed'),
-		('a', 'Available')
+		('borrowed', 'Borrowed'),
+		('available', 'Available')
 	)
-	status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='a')
+	status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='available')
 
 
 	def publish(self):

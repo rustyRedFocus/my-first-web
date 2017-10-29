@@ -1,23 +1,36 @@
 {% extends 'biblio/base.html' %}
 
 {% block content %}
+
 <!--
 COMMENT OUT TAG
 -->
-{{ videos }}
 
-<br><br>
+<!-- EXAMPLE OF COMMENT OUT INSIDE A BLOCK
+{% comment %}<p><form><input type="button" onclick="sayHello()" value="{{ video }}" /></form></p>{% endcomment %}
+-->
 
+
+NACISNIJ CTRL + F5 ZEBY POBRAC NAJNOWSZA WERSJE PLIKU JAVASCRIPT<br>
+<button id="magic">JQuery test</button>
+<form><input type="button" onclick="sayHello()" value="JavaScript test" /></form>
+<br>
+
+<h1 class="row">VIDEOS:</h1>
 {% for video in videos %}
 	<div class="row">
 		<div class="col-md-8"
-	<p><form><input type="button" onclick="sayHello()" value="{{ video }}" /></form></p>
-	<h1><a href="{% url 'video_detail' pk=video.pk %}">{{ video.title }}</a></h1>
+	{% comment %}<p><form><input type="button" onclick="sayHello()" value="{{ video }}" /></form></p>{% endcomment %}
+	<p><h1><a href="{% url 'video_detail' pk=video.pk %}">{{ video.title }}</a></h1><p>
 	<p>{{ video.director|linebreaksbr }}</p>
+	<a class="btn btn-default" href="{% url 'video_edit' pk=video.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	<a class="btn btn-default" onclick="confirmDelete()" href="{% url 'video_delete' pk=video.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
 </div>
 	</div>
 {% endfor %}
 
-<button id="magic">DISAPPEAR BUTTON</button>
+
+
+
 
 {% endblock %}

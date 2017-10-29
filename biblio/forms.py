@@ -6,4 +6,4 @@ class VideoForm(forms.ModelForm):
 
 	class Meta:
 		model = Video
-		fields = ('title', 'director',)
+		fields = ('title', 'director', 'year', 'description')

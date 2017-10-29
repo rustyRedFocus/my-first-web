@@ -39,6 +39,7 @@ ze strony https://stackoverflow.com/questions/25822474/including-static-js-files
 	    <div class="page-header">
         {% if user.is_authenticated %}
     	<a href="{% url 'video_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <a href="{% url 'video_new' %}" class="top-menu"><span class="glyphicon glyphicon-file"></span></a>
 		{% endif %}
         <h1><a href="/">Library</a></h1>
         </div>
@@ -53,6 +54,10 @@ ze strony https://stackoverflow.com/questions/25822474/including-static-js-files
 
 
 </head>
+
+
+
+
 
 
 </html>

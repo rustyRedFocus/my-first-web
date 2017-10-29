@@ -2,10 +2,23 @@
 
 {% block content %}
 
-<button type="submit"> {{ video }} </button>
+<!--<button type="submit"> {{ video }} </button>-->
 
+{{ video.title }}
+<br><br>
+{{ video.director }}
+<br><br>
+{{ video.year }}
+<br><br>
+{{ video.description|linebreaksbr }}
+<br><br>
+{{ video.status }}
+
+
+<!--
 <a class="btn btn-default" href="{% url 'video_edit' pk=video.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-<a class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a>
+<a class="btn btn-default" href="{% url 'video_delete' pk=video.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+-->
 
 {% endblock %}
 
