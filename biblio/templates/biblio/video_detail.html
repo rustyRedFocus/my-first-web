@@ -13,7 +13,17 @@
 {{ video.description|linebreaksbr }}
 <br><br>
 {{ video.status }}
+<br><br>
+{% load static %}
+<img src="{% static "media/blu.jpeg" %}">
+<!-- Uwaga, nie może zaczynać się od slasha!!! -->
 
+<img src="{{ img }}"> <!-- img zdefiniowane jest w widokach -->
+
+<!--{% for n in img %}
+ <img src="{{ n.photo.path }}">
+ {% endfor %}
+-->
 
 <!--
 <a class="btn btn-default" href="{% url 'video_edit' pk=video.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -21,4 +31,3 @@
 -->
 
 {% endblock %}
-

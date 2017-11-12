@@ -16,12 +16,16 @@ def books_list(request):
 
 def video_detail(request, pk):
 	video = get_object_or_404(Video, pk=pk)
-	return render(request, 'biblio/video_detail.html', {'video' : video})
+	# pk = Primary Key, jest to alias dla atrybutu Modelu, będącego jego Primary Key
+	# używa się tego zamiast "id"
+	img = video.photo.url
+	return render(request, 'biblio/video_detail.html', {'video' : video, 'img' : img })
 
 def video_new(request):
 
 	if request.method == "POST":
-		form = VideoForm(request.POST)
+		form = VideoForm(request.POST, request.FILES)
+		# musi byc na koncu request.FILES zeby dzialalo !!!!!!!!!!!!!!!!
 		if form.is_valid():
 			video = form.save(commit=False)
 		#post.author = request.user
@@ -36,7 +40,9 @@ def video_new(request):
 def video_edit(request, pk):
     video = get_object_or_404(Video, pk=pk)
     if request.method == "POST":
-        form = VideoForm(request.POST, instance=video)
+
+        form = VideoForm(request.POST, request.FILES, instance=video)
+		# musi byc na koncu request.FILES zeby dzialalo !!!!!!!!!!!!!!!!
         if form.is_valid():
             video = form.save(commit=False)
             #post.author = request.user
@@ -59,9 +65,3 @@ def video_delete(request, pk):
 	v.delete()
 	videos = Video.objects.order_by('title')
 	return render(request, 'biblio/videos_list.html', {'videos' : videos})
-
-
-
-
-
-

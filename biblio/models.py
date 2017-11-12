@@ -14,11 +14,12 @@ class Book(models.Model):
 	return_date = models.DateTimeField(default=borrow_lenght)
 	#return_date = models.DateTimeField(blank=True, null=True)
 
+
 	STATUS_CHOICES = (
 		('b', 'Borrowed'),
 		('a', 'Available')
 	)
-	status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='a')
+	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='a')
 
 
 
@@ -43,12 +44,15 @@ class Video(models.Model):
 	director = models.CharField(max_length=200)
 	year = models.CharField(max_length=4)
 	description = models.TextField()
+	photo = models.ImageField(upload_to='./', default = './no-image.jpeg')
+	#photo = models.ImageField(upload_to='./static/media')
+
 
 	STATUS_CHOICES = (
 		('borrowed', 'Borrowed'),
 		('available', 'Available')
 	)
-	status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='available')
+	status = models.CharField(max_length=9, choices=STATUS_CHOICES, default='available')
 
 
 	def publish(self):
